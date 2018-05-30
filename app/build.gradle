@@ -48,4 +48,10 @@ dependencies {
     implementation 'com.qq.mta:mta:3.4.0.1-beta'
     // 腾讯统计 mid  jar包 必须添加
     implementation 'com.tencent.mid:mid:3.73-release'
+
+    // 谷歌崩溃统计 firebase
+    implementation 'com.google.firebase:firebase-core:15.0.2'
 }
+
+// 谷歌崩溃统计 firebase
+apply plugin: 'com.google.gms.google-services'

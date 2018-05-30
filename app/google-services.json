@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "900157831554",
+    "firebase_url": "https://fir-83c14.firebaseio.com",
+    "project_id": "fir-83c14",
+    "storage_bucket": "fir-83c14.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:900157831554:android:d1e107ad1744a18a",
+        "android_client_info": {
+          "package_name": "com.samfdl.demo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "900157831554-vj8g8hjujugvrg45hgu34e4a1a47ua3o.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "900157831554-vj8g8hjujugvrg45hgu34e4a1a47ua3o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKINc6FxSdi74OT-dF48lqvy-zleTxYyU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

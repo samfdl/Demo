@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         list.add("RecyclerView");
         list.add("极光推送");
         list.add("腾讯统计");
+        list.add("谷歌崩溃统计 firebase");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
