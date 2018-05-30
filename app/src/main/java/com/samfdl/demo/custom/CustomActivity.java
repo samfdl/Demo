@@ -26,6 +26,7 @@ public class CustomActivity extends AppCompatActivity {
         list.add("圆环渐变进度条");
         list.add("文字淡出屏幕效果");
         list.add("下拉刷新的阻尼回弹效果");
+        list.add("仿IOS底部弹出菜单");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -41,6 +42,9 @@ public class CustomActivity extends AppCompatActivity {
                         break;
                     case 2:
                         intent = new Intent(CustomActivity.this, ReboundActivity.class);
+                        break;
+                    case 3:
+                        intent = new Intent(CustomActivity.this, IosActionSheetActivity.class);
                         break;
                 }
                 startActivity(intent);

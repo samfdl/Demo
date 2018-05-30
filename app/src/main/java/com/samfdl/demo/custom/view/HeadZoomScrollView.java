@@ -68,7 +68,8 @@ public class HeadZoomScrollView extends ScrollView {
 //        不可过度滚动，否则上移后下拉会出现部分空白的情况
         setOverScrollMode(OVER_SCROLL_NEVER);
 //        获得默认第一个view
-        if (getChildAt(0) != null && getChildAt(0) instanceof ViewGroup && zoomView == null) {
+        if (getChildAt(0) != null && getChildAt(0) instanceof ViewGroup
+                && zoomView == null) {
             ViewGroup vg = (ViewGroup) getChildAt(0);
             if (vg.getChildCount() > 0) {
                 zoomView = vg.getChildAt(0);
@@ -95,7 +96,10 @@ public class HeadZoomScrollView extends ScrollView {
                     }
                 }
                 int distance = (int) ((ev.getY() - y) * mScaleRatio);
-                if (distance < 0) break;//若往下滑动
+                // 只往下滑动
+                if (distance < 0) {
+                    break;
+                }
                 mScaling = true;
                 setZoom(distance);
                 return true;
@@ -112,14 +116,17 @@ public class HeadZoomScrollView extends ScrollView {
      */
     private void setZoom(float s) {
         float scaleTimes = (float) ((zoomViewWidth + s) / (zoomViewWidth * 1.0));
-//        如超过最大放大倍数，直接返回
-        if (scaleTimes > mScaleTimes) return;
+        // 如超过最大放大倍数，直接返回
+        if (scaleTimes > mScaleTimes) {
+            return;
+        }
 
         ViewGroup.LayoutParams layoutParams = zoomView.getLayoutParams();
         layoutParams.width = zoomViewWidth;
-        layoutParams.height = (int) (zoomViewHeight * ((zoomViewWidth + s) / zoomViewWidth));
-//        设置控件水平居中
-        ((MarginLayoutParams) layoutParams).setMargins(-(layoutParams.width - zoomViewWidth) / 2, 0, 0, 0);
+        layoutParams.height = (int) (zoomViewHeight * scaleTimes);
+        // 设置控件水平居中
+        ((MarginLayoutParams) layoutParams).setMargins(
+                -(layoutParams.width - zoomViewWidth) / 2, 0, 0, 0);
         zoomView.setLayoutParams(layoutParams);
     }
 
@@ -129,7 +136,8 @@ public class HeadZoomScrollView extends ScrollView {
     private void replyView() {
         final float distance = zoomView.getMeasuredHeight() - zoomViewHeight;
         // 设置动画
-        ValueAnimator anim = ObjectAnimator.ofFloat(distance, 0.0F).setDuration((long) (distance * mReplyRatio));
+        ValueAnimator anim = ObjectAnimator.ofFloat(distance, 0.0F)
+                .setDuration((long) (distance * mReplyRatio));
         anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
@@ -142,7 +150,9 @@ public class HeadZoomScrollView extends ScrollView {
     @Override
     protected void onScrollChanged(int l, int t, int oldl, int oldt) {
         super.onScrollChanged(l, t, oldl, oldt);
-        if (onScrollListener != null) onScrollListener.onScroll(l, t, oldl, oldt);
+        if (onScrollListener != null) {
+            onScrollListener.onScroll(l, t, oldl, oldt);
+        }
     }
 
     private OnScrollListener onScrollListener;

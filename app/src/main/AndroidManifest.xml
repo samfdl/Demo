@@ -21,5 +21,6 @@
         <activity android:name=".custom.ProgressRingActivity" />
         <activity android:name=".custom.FadeOutActivity" />
         <activity android:name=".custom.ReboundActivity" />
+        <activity android:name=".custom.IosActionSheetActivity" />
     </application>
 </manifest>
