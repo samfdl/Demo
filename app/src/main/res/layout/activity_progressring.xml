@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:gravity="center">
+
+    <com.samfdl.demo.custom.view.ProgressRing
+        android:id="@+id/progressring"
+        android:layout_width="162dp"
+        android:layout_height="162dp"
+        app:pr_bg_color="@color/custom_progressring_circle_bg"
+        app:pr_progress_end_color="@color/custom_progressring_circle_end"
+        app:pr_progress_start_color="@color/custom_progressring_circle_start"
+        app:pr_progress_width="5dp"
+        app:pr_start_angle="135"
+        app:pr_sweep_angle="270"
+        app:pr_text_size="20sp" />
+</LinearLayout>

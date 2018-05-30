@@ -3,4 +3,8 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="custom_progressring_circle_bg">#33FFFFFF</color>
+    <color name="custom_progressring_circle_start">#F76B1C</color>
+    <color name="custom_progressring_circle_end">#FAD961</color>
 </resources>

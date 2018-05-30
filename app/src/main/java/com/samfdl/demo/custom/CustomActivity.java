@@ -1,18 +1,18 @@
-package com.samfdl.demo;
+package com.samfdl.demo.custom;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.samfdl.demo.custom.CustomActivity;
-import com.tencent.stat.StatService;
+import com.samfdl.demo.R;
+import com.samfdl.demo.RecyclerViewAdapter;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class CustomActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,28 +23,21 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         ArrayList list = new ArrayList<String>();
-        list.add("RecyclerView");
-        list.add("自定义控件");
-        list.add("极光推送");
-        list.add("腾讯统计");
-        list.add("谷歌崩溃统计 firebase");
+        list.add("圆环渐变进度条");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Intent intent = new Intent(MainActivity.this, CustomActivity.class);
+                Intent intent = new Intent(CustomActivity.this, ProgressRingActivity.class);
                 switch (position) {
-                    case 1:
-                        intent = new Intent(MainActivity.this, CustomActivity.class);
+                    case 0:
+                        intent = new Intent(CustomActivity.this, ProgressRingActivity.class);
                         break;
                 }
                 startActivity(intent);
             }
         });
         recyclerView.setAdapter(recyclerViewAdapter);
-
-        // 腾讯统计
-        StatService.trackCustomKVEvent(this, "homepage", null);
     }
 }
