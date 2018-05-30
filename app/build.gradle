@@ -9,6 +9,13 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // 极光推送所需
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "aa4e06ad05b1a0c6151e8017", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
     }
     buildTypes {
         release {
@@ -28,4 +35,8 @@ dependencies {
 
     // 引入 recyclerview
     implementation 'com.android.support:recyclerview-v7:27.1.1'
+
+    // 集成极光推送
+    implementation 'cn.jiguang.sdk:jpush:3.1.3'
+    implementation 'cn.jiguang.sdk:jcore:1.2.1'
 }
