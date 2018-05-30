@@ -10,7 +10,7 @@ public class ProgressRingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_progressring);
+        setContentView(R.layout.activity_custom_progressring);
 
         ProgressRing progressRing = findViewById(R.id.progressring);
         progressRing.setText("9");

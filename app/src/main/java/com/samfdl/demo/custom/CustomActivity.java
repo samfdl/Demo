@@ -24,6 +24,7 @@ public class CustomActivity extends AppCompatActivity {
 
         ArrayList list = new ArrayList<String>();
         list.add("圆环渐变进度条");
+        list.add("文字淡出屏幕效果");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -33,6 +34,9 @@ public class CustomActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         intent = new Intent(CustomActivity.this, ProgressRingActivity.class);
+                        break;
+                    case 1:
+                        intent = new Intent(CustomActivity.this, FadeOutActivity.class);
                         break;
                 }
                 startActivity(intent);
