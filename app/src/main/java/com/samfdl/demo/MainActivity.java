@@ -6,10 +6,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.tencent.stat.StatService;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,9 +21,9 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(linearLayoutManager);
 
         ArrayList list = new ArrayList<String>();
-        for (int i = 0; i < 3; i++) {
-            list.add("jdljdfl");
-        }
+        list.add("RecyclerView");
+        list.add("极光推送");
+        list.add("腾讯统计");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -31,5 +32,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         recyclerView.setAdapter(recyclerViewAdapter);
+
+        // 腾讯统计
+        StatService.trackCustomKVEvent(this, "homepage", null);
     }
 }

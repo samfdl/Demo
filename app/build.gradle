@@ -15,6 +15,10 @@ android {
                 JPUSH_PKGNAME: applicationId,
                 JPUSH_APPKEY : "aa4e06ad05b1a0c6151e8017", //JPush上注册的包名对应的appkey.
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+
+                // 腾讯统计所需
+                MTA_APPKEY   : "A1HM3BEE76MA",
+                MTA_CHANNEL  : "developer-default"
         ]
     }
     buildTypes {
@@ -36,7 +40,12 @@ dependencies {
     // 引入 recyclerview
     implementation 'com.android.support:recyclerview-v7:27.1.1'
 
-    // 集成极光推送
+    // 集成 极光推送
     implementation 'cn.jiguang.sdk:jpush:3.1.3'
     implementation 'cn.jiguang.sdk:jcore:1.2.1'
+
+    // 腾讯统计 mta 3.3 稳定版
+    implementation 'com.qq.mta:mta:3.4.0.1-beta'
+    // 腾讯统计 mid  jar包 必须添加
+    implementation 'com.tencent.mid:mid:3.73-release'
 }
