@@ -8,6 +8,7 @@ import android.widget.Button;
 import com.samfdl.demo.R;
 import com.samfdl.demo.custom.view.IosActionSheet;
 import com.samfdl.demo.custom.view.IosActionSheetLogout;
+import com.samfdl.demo.custom.view.IosDialog;
 
 public class IosActionSheetActivity extends AppCompatActivity implements View.OnClickListener {
     @Override
@@ -20,6 +21,9 @@ public class IosActionSheetActivity extends AppCompatActivity implements View.On
 
         Button logout = findViewById(R.id.logout);
         logout.setOnClickListener(this);
+
+        Button alert = findViewById(R.id.alert);
+        alert.setOnClickListener(this);
     }
 
     @Override
@@ -53,6 +57,14 @@ public class IosActionSheetActivity extends AppCompatActivity implements View.On
             case R.id.logout:
                 IosActionSheetLogout.createBuilder(this)
                         .setListener(new IosActionSheetLogout.ActionSheetListener() {
+                            @Override
+                            public void onClick(int index) {
+                            }
+                        }).show();
+                break;
+            case R.id.alert:
+                IosDialog.createBuilder(this)
+                        .setListener(new IosDialog.ActionSheetListener() {
                             @Override
                             public void onClick(int index) {
                             }

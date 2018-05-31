@@ -2,7 +2,6 @@ package com.samfdl.demo.custom.view;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -22,13 +21,11 @@ public class IosActionSheet {
         mDialog.setContentView(contentView);
 
         Window window = mDialog.getWindow();
-        WindowManager m = window.getWindowManager();
-        Display display = m.getDefaultDisplay(); // 获取屏幕宽、高用
         WindowManager.LayoutParams params = window.getAttributes(); // 获取对话框当前的参数值
-        params.width = display.getWidth();
+        params.width = window.getWindowManager().getDefaultDisplay().getWidth();
         window.setAttributes(params);
+
         window.setGravity(Gravity.BOTTOM);  //此处可以设置dialog显示的位置
-        window.setWindowAnimations(R.style.ActionSheetDialogAnimation);  //添加动画
     }
 
     public void dismiss() {

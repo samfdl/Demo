@@ -13,4 +13,7 @@
     <color name="custom_progressring_circle_end">#FAD961</color>
 
     <color name="custom_iosactionsheet_dialog_bg">#FCFCFC</color>
+
+    <color name="custom_iosdialog_text">#030303</color>
+    <color name="custom_iosdialog_line">#E6E6E6</color>
 </resources>
