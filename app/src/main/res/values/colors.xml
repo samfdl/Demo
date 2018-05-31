@@ -6,6 +6,7 @@
 
     <color name="white">#FFFFFF</color>
     <color name="blue">#0076FF</color>
+    <color name="red">#FE3824</color>
 
     <color name="custom_progressring_circle_bg">#33FFFFFF</color>
     <color name="custom_progressring_circle_start">#F76B1C</color>

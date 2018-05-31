@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import com.samfdl.demo.R;
 import com.samfdl.demo.custom.view.IosActionSheet;
+import com.samfdl.demo.custom.view.IosActionSheetLogout;
 
 public class IosActionSheetActivity extends AppCompatActivity implements View.OnClickListener {
     @Override
@@ -14,34 +15,49 @@ public class IosActionSheetActivity extends AppCompatActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_iosactionsheet);
 
-        Button button = findViewById(R.id.button);
-        button.setOnClickListener(this);
+        Button share = findViewById(R.id.share);
+        share.setOnClickListener(this);
+
+        Button logout = findViewById(R.id.logout);
+        logout.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        IosActionSheet mActionSheet = IosActionSheet.createBuilder(this)
-                .setListener(new IosActionSheet.ActionSheetListener() {
-                    @Override
-                    public void onClick(int index) {
-                        switch (index) {
-                            case R.id.save:
+        switch (v.getId()) {
+            case R.id.share:
+                IosActionSheet mActionSheet = IosActionSheet.createBuilder(this)
+                        .setListener(new IosActionSheet.ActionSheetListener() {
+                            @Override
+                            public void onClick(int index) {
+                                switch (index) {
+                                    case R.id.save:
 //                                saveBitmap();
-                                break;
-                            case R.id.wechat:
+                                        break;
+                                    case R.id.wechat:
 //                                wechatShare(SendMessageToWX.Req.WXSceneSession);
-                                break;
-                            case R.id.friends:
+                                        break;
+                                    case R.id.friends:
 //                                wechatShare(SendMessageToWX.Req.WXSceneTimeline);
-                                break;
-                            case R.id.weibo:
+                                        break;
+                                    case R.id.weibo:
 //                                weiboShare();
-                                break;
-                            case R.id.qq:
+                                        break;
+                                    case R.id.qq:
 //                                qqShare();
-                                break;
-                        }
-                    }
-                }).show();
+                                        break;
+                                }
+                            }
+                        }).show();
+                break;
+            case R.id.logout:
+                IosActionSheetLogout.createBuilder(this)
+                        .setListener(new IosActionSheetLogout.ActionSheetListener() {
+                            @Override
+                            public void onClick(int index) {
+                            }
+                        }).show();
+                break;
+        }
     }
 }
