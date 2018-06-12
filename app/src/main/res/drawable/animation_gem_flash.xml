@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 定义动画循环播放 -->
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="true">
+    <item
+        android:drawable="@mipmap/gem"
+        android:duration="120" />
+    <item
+        android:drawable="@mipmap/gem1"
+        android:duration="120" />
+    <item
+        android:drawable="@mipmap/gem2"
+        android:duration="120" />
+    <item
+        android:drawable="@mipmap/gem3"
+        android:duration="120" />
+    <item
+        android:drawable="@mipmap/gem4"
+        android:duration="120" />
+    <item
+        android:drawable="@mipmap/gem5"
+        android:duration="120" />
+    <item
+        android:drawable="@mipmap/gem6"
+        android:duration="120" />
+</animation-list>

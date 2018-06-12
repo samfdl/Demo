@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.samfdl.demo.animation.GemActivity;
 import com.samfdl.demo.custom.CustomActivity;
 import com.samfdl.demo.function.SalaryActivity;
 import com.tencent.stat.StatService;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList list = new ArrayList<String>();
         list.add("RecyclerView");
         list.add("自定义控件");
+        list.add("动画");
         list.add("小功能");
         list.add("极光推送");
         list.add("腾讯统计");
@@ -41,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this, CustomActivity.class);
                         break;
                     case 2:
+                        intent = new Intent(MainActivity.this, GemActivity.class);
+                        break;
+                    case 3:
                         intent = new Intent(MainActivity.this, SalaryActivity.class);
                         break;
                 }

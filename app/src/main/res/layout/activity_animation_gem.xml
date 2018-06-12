@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <View
+        android:id="@+id/gem"
+        android:layout_width="19dp"
+        android:layout_height="18dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="30dp"
+        android:background="@mipmap/gem" />
+
+    <RelativeLayout
+        android:layout_width="162dp"
+        android:layout_height="162dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="115dp">
+
+        <View
+            android:id="@+id/light"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerInParent="true"
+            android:background="@mipmap/light" />
+
+        <View
+            android:id="@+id/gem_center"
+            android:layout_width="83dp"
+            android:layout_height="83dp"
+            android:layout_centerInParent="true"
+            android:background="@mipmap/gem_center" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/fly_gem"
+        android:layout_width="19dp"
+        android:layout_height="18dp"
+        android:layout_marginLeft="132dp"
+        android:layout_marginTop="150dp"
+        android:background="@mipmap/gem"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/fly_gem1"
+        android:layout_width="28.5dp"
+        android:layout_height="27dp"
+        android:layout_marginLeft="98dp"
+        android:layout_marginTop="124dp"
+        android:background="@mipmap/gem"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/fly_gem2"
+        android:layout_width="19dp"
+        android:layout_height="18dp"
+        android:layout_marginLeft="83dp"
+        android:layout_marginTop="106dp"
+        android:background="@mipmap/gem"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/fly_gem3"
+        android:layout_width="28.5dp"
+        android:layout_height="27dp"
+        android:layout_marginLeft="64dp"
+        android:layout_marginTop="80dp"
+        android:background="@mipmap/gem"
+        android:visibility="gone" />
+
+    <View
+        android:id="@+id/fly_gem4"
+        android:layout_width="19dp"
+        android:layout_height="18dp"
+        android:layout_marginLeft="53dp"
+        android:layout_marginTop="60dp"
+        android:background="@mipmap/gem"
+        android:visibility="gone" />
+</FrameLayout>
