@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Demo</string>
+
+    <string name="function_salary_pay">请输入税前工资￥：</string>
+    <string name="function_salary_gongjijin">请输入公积金：</string>
+    <string name="function_salary_yanglao">请输入养老保险：</string>
+    <string name="function_salary_buzhu">请输入其他补助（征税）：</string>
+    <string name="function_salary_yes">确定</string>
 </resources>

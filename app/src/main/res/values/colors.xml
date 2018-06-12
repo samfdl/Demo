@@ -16,4 +16,7 @@
 
     <color name="custom_iosdialog_text">#030303</color>
     <color name="custom_iosdialog_line">#E6E6E6</color>
+
+    <color name="function_salary_green_txt">#3D9968</color>
+    <color name="function_salary_grey_divider">#DBDBDB</color>
 </resources>

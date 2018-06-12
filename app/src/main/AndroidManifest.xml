@@ -22,5 +22,7 @@
         <activity android:name=".custom.FadeOutActivity" />
         <activity android:name=".custom.ReboundActivity" />
         <activity android:name=".custom.IosActionSheetActivity" />
+
+        <activity android:name=".function.SalaryActivity" />
     </application>
 </manifest>
