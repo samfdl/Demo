@@ -10,6 +10,7 @@ import android.view.View;
 import com.samfdl.demo.animation.GemActivity;
 import com.samfdl.demo.custom.CustomActivity;
 import com.samfdl.demo.function.SalaryActivity;
+import com.samfdl.demo.graphic.GraphicActivity;
 import com.samfdl.demo.lib.LibActivity;
 import com.tencent.stat.StatService;
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList list = new ArrayList<String>();
         list.add("RecyclerView");
         list.add("自定义控件");
+        list.add("图形");
         list.add("动画");
         list.add("小功能");
         list.add("集成库详单");
@@ -42,12 +44,15 @@ public class MainActivity extends AppCompatActivity {
                         intent = new Intent(MainActivity.this, CustomActivity.class);
                         break;
                     case 2:
-                        intent = new Intent(MainActivity.this, GemActivity.class);
+                        intent = new Intent(MainActivity.this, GraphicActivity.class);
                         break;
                     case 3:
-                        intent = new Intent(MainActivity.this, SalaryActivity.class);
+                        intent = new Intent(MainActivity.this, GemActivity.class);
                         break;
                     case 4:
+                        intent = new Intent(MainActivity.this, SalaryActivity.class);
+                        break;
+                    case 5:
                         intent = new Intent(MainActivity.this, LibActivity.class);
                         break;
                 }
