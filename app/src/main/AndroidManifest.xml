@@ -26,5 +26,7 @@
         <activity android:name=".animation.GemActivity" />
 
         <activity android:name=".function.SalaryActivity" />
+
+        <activity android:name=".lib.LibActivity" />
     </application>
 </manifest>

@@ -10,6 +10,7 @@ import android.view.View;
 import com.samfdl.demo.animation.GemActivity;
 import com.samfdl.demo.custom.CustomActivity;
 import com.samfdl.demo.function.SalaryActivity;
+import com.samfdl.demo.lib.LibActivity;
 import com.tencent.stat.StatService;
 
 import java.util.ArrayList;
@@ -29,9 +30,7 @@ public class MainActivity extends AppCompatActivity {
         list.add("自定义控件");
         list.add("动画");
         list.add("小功能");
-        list.add("极光推送");
-        list.add("腾讯统计");
-        list.add("谷歌崩溃统计 firebase");
+        list.add("集成库详单");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -47,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 3:
                         intent = new Intent(MainActivity.this, SalaryActivity.class);
+                        break;
+                    case 4:
+                        intent = new Intent(MainActivity.this, LibActivity.class);
                         break;
                 }
                 startActivity(intent);
