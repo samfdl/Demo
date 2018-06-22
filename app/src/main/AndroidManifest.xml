@@ -31,5 +31,6 @@
         <activity android:name=".function.SalaryActivity" />
 
         <activity android:name=".lib.LibActivity" />
+        <activity android:name=".lib.QRCodeActivity" />
     </application>
 </manifest>
