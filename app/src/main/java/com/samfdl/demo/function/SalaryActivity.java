@@ -79,7 +79,7 @@ public class SalaryActivity extends AppCompatActivity {
                                 baoxianJisuan(isBeijing);
                             }
                             mSalary.setText(format.format(salary));
-                            jisuan();
+                            jisuan1();
                         }
                     }
                 }).create().show();
@@ -97,7 +97,7 @@ public class SalaryActivity extends AppCompatActivity {
                             gongjijin = Double.valueOf(text);
                             gongjijinJishu = gongjijin / gongjijinlv;
                             gongjijinJisuan();
-                            jisuan();
+                            jisuan1();
                         }
                     }
                 }).create().show();
@@ -115,7 +115,7 @@ public class SalaryActivity extends AppCompatActivity {
                             yanglao = Double.valueOf(text);
                             baoxianJishu = yanglao / yanglaolv;
                             baoxianJisuan(isBeijing);
-                            jisuan();
+                            jisuan1();
                         }
                     }
                 }).create().show();
@@ -132,7 +132,7 @@ public class SalaryActivity extends AppCompatActivity {
                         if (text.length() > 0) {
                             buzhu = Double.valueOf(text);
                             mBuzhu.setText(format.format(buzhu));
-                            jisuan();
+                            jisuan1();
                         }
                     }
                 }).create().show();
@@ -187,12 +187,41 @@ public class SalaryActivity extends AppCompatActivity {
         mSalaryHou.setText(format.format(salaryHou));
     }
 
+    private void jisuan1() {
+        suodeshui = salary + buzhu - (gongjijin + yanglao + yiliao + shiye)
+                - 5000;
+        if (suodeshui <= 0) {
+            suodeshui = 0;
+        } else if (suodeshui <= 3000) {
+            suodeshui = suodeshui * 0.03;
+        } else if (suodeshui <= 12000) {
+            suodeshui = suodeshui * 0.1 - 210;
+        } else if (suodeshui <= 25000) {
+            suodeshui = suodeshui * 0.2 - 1410;
+        } else if (suodeshui <= 35000) {
+            suodeshui = suodeshui * 0.25 - 2660;
+        } else if (suodeshui <= 55000) {
+            suodeshui = suodeshui * 0.3 - 4410;
+        } else if (suodeshui <= 80000) {
+            suodeshui = suodeshui * 0.35 - 7160;
+        } else {
+            suodeshui = suodeshui * 0.45 - 15160;
+        }
+
+        kouchuzongji = gongjijin + yanglao + yiliao + shiye + suodeshui;
+        salaryHou = salary - kouchuzongji;
+
+        mSuodeshui.setText(format.format(suodeshui));
+        mKouchuzongji.setText(format.format(kouchuzongji));
+        mSalaryHou.setText(format.format(salaryHou));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_function_salary);
 
-        mCity = (Spinner) findViewById(R.id.city);
+        mCity = findViewById(R.id.city);
         mCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             public void onItemSelected(AdapterView<?> arg0, View arg1, int id,
                                        long arg3) {
@@ -207,7 +236,7 @@ public class SalaryActivity extends AppCompatActivity {
                     isBeijing = false;
                 }
                 baoxianJisuan(isBeijing);
-                jisuan();
+                jisuan1();
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {

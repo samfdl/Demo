@@ -7,13 +7,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.samfdl.demo.MainActivity;
 import com.samfdl.demo.R;
 import com.samfdl.demo.RecyclerViewAdapter;
-import com.samfdl.demo.animation.GemActivity;
-import com.samfdl.demo.custom.CustomActivity;
-import com.samfdl.demo.function.SalaryActivity;
-import com.samfdl.demo.graphic.GraphicActivity;
 import com.tencent.stat.StatService;
 
 import java.util.ArrayList;
@@ -33,6 +28,7 @@ public class LibActivity extends AppCompatActivity {
         list.add("极光推送");
         list.add("腾讯统计");
         list.add("谷歌崩溃统计 firebase");
+        list.add("OkHttp");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
