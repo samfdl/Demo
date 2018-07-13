@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dia_comment_ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:paddingLeft="12dp"
+                    android:paddingRight="12dp">
+
+                    <LinearLayout
+                        android:id="@+id/back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical">
+
+                        <View
+                            android:layout_width="8dp"
+                            android:layout_height="16dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:text="返回"
+                            android:textColor="@color/custom_iosdialog_line"
+                            android:textSize="15dp" />
+                    </LinearLayout>
+
+                    <View
+                        android:id="@+id/more"
+                        android:layout_width="18dp"
+                        android:layout_height="4dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/custom_iosdialog_line" />
+
+                <!--<ScrollView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:fillViewport="true">-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="17dp"
+                        android:paddingBottom="20dp"
+                        android:paddingTop="20dp">
+
+                        <ImageView
+                            android:id="@+id/head"
+                            android:layout_width="38dp"
+                            android:layout_height="38dp" />
+
+                        <TextView
+                            android:id="@+id/name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/head"
+                            android:textColor="@color/custom_iosdialog_line"
+                            android:textSize="15dp" />
+
+                        <TextView
+                            android:id="@+id/time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/name"
+                            android:layout_marginLeft="10dp"
+                            android:layout_toRightOf="@+id/head"
+                            android:textColor="@color/custom_iosdialog_line"
+                            android:textSize="12dp" />
+
+                        <TextView
+                            android:id="@+id/tribe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:textColor="@color/custom_iosdialog_line"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/content"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/head"
+                            android:layout_marginTop="12dp"
+                            android:textColor="@color/custom_iosdialog_line"
+                            android:textSize="16dp" />
+
+                        <TextView
+                            android:id="@+id/thumb_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_below="@+id/content"
+                            android:layout_marginTop="20dp"
+                            android:textColor="@color/custom_iosdialog_line"
+                            android:textSize="14dp" />
+
+                        <View
+                            android:id="@+id/thumb"
+                            android:layout_width="14dp"
+                            android:layout_height="15dp"
+                            android:layout_below="@+id/content"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginTop="21dp"
+                            android:layout_toLeftOf="@id/thumb_count" />
+
+                        <TextView
+                            android:id="@+id/comment_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/content"
+                            android:layout_marginRight="40dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_toLeftOf="@id/thumb"
+                            android:textColor="@color/custom_iosdialog_line"
+                            android:textSize="14dp" />
+
+                        <View
+                            android:id="@+id/comment"
+                            android:layout_width="15dp"
+                            android:layout_height="14dp"
+                            android:layout_below="@+id/content"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_toLeftOf="@id/comment_count" />
+
+                        <View
+                            android:id="@+id/line"
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_below="@+id/thumb_count"
+                            android:layout_marginTop="20dp"
+                            android:background="@color/custom_iosdialog_line" />
+
+                        <TextView
+                            android:id="@+id/thumb_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/line"
+                            android:layout_marginTop="16.5dp"
+                            android:textColor="@color/custom_iosdialog_line"
+                            android:textSize="15dp" />
+                    </RelativeLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:background="@color/custom_iosdialog_line" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="14dp"
+                        android:paddingLeft="17dp"
+                        android:paddingRight="17dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="全部评论"
+                            android:textColor="@color/custom_iosdialog_line"
+                            android:textSize="16dp" />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="0.5dp"
+                            android:layout_marginTop="14dp"
+                            android:background="@color/custom_iosdialog_line" />
+
+                        <!--<com.tinfinite.candy.layout.comment.CommentsView-->
+                        <!--android:id="@+id/cv_comment"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content" />-->
+                    </LinearLayout>
+                </LinearLayout>
+                <!--</ScrollView>-->
+                <View
+                    android:id="@+id/layer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/custom_iosdialog_line"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/custom_iosdialog_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingLeft="17dp"
+        android:paddingRight="17dp">
+
+        <EditText
+            android:id="@+id/input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="center_vertical"
+            android:hint="输入评论"
+            android:maxLines="5"
+            android:paddingBottom="13dp"
+            android:paddingTop="13dp"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/publish"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_marginLeft="30dp"
+            android:gravity="center"
+            android:text="发表"
+            android:textSize="17dp" />
+    </LinearLayout>
+</LinearLayout>

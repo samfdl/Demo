@@ -27,6 +27,7 @@ public class CustomActivity extends AppCompatActivity {
         list.add("文字淡出屏幕效果");
         list.add("下拉刷新的阻尼回弹效果");
         list.add("仿IOS底部弹出菜单");
+        list.add("软键盘弹出，底部控件上移");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -45,6 +46,9 @@ public class CustomActivity extends AppCompatActivity {
                         break;
                     case 3:
                         intent = new Intent(CustomActivity.this, IosActionSheetActivity.class);
+                        break;
+                    case 4:
+                        intent = new Intent(CustomActivity.this, BottomUpActivity.class);
                         break;
                 }
                 startActivity(intent);
