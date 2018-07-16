@@ -26,4 +26,10 @@
         <!--是否显示动画-->
         <attr name="pr_show_anim" format="boolean" />
     </declare-styleable>
+
+    <declare-styleable name="roundedimageview">
+        <attr name="border_thickness" format="dimension" />
+        <attr name="border_inside_color" format="color" />
+        <attr name="border_outside_color" format="color"></attr>
+    </declare-styleable>
 </resources>

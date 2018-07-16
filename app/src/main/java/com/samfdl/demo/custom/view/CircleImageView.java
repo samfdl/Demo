@@ -1,79 +1,173 @@
 package com.samfdl.demo.custom.view;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.PaintFlagsDrawFilter;
-import android.graphics.Path;
-import android.graphics.Region;
-import android.support.v7.widget.AppCompatImageView;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.NinePatchDrawable;
 import android.util.AttributeSet;
+import android.widget.ImageView;
 
-public class CircleImageView extends AppCompatImageView {
-    private Paint paint = null;
-    // 设置画布抗锯齿(毛边过滤)
-    private PaintFlagsDrawFilter pfdf = null;
-    private Path path = null;
+import com.samfdl.demo.R;
+
+@SuppressLint("AppCompatCustomView")
+public class CircleImageView extends ImageView {
+    //边框的宽度
+    private int mBorderThickness = 2;
+    private Context mContext;
+    private int defaultColor = 0xFFFFFFFF;
+    // 如果只有其中一个有值，则只画一个圆形边框
+    private int mBorderOutsideColor = 1;
+    private int mBorderInsideColor = 0;
+    // 控件默认长、宽
+    private int defaultWidth = 0;
+    private int defaultHeight = 0;
 
     public CircleImageView(Context context) {
         super(context);
-        init(context, null);
+        mContext = context;
     }
 
     public CircleImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context, attrs);
+        mContext = context;
+        setCustomAttributes(attrs);
     }
 
-    public CircleImageView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init(context, attrs);
+    public CircleImageView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        mContext = context;
+        setCustomAttributes(attrs);
     }
 
-    // public CircleImageView(Context context, AttributeSet attrs, int
-    // defStyleAttr, int defStyleRes) {
-    // super(context, attrs, defStyleAttr, defStyleRes);
-    // init(context, attrs);
-    // }
-
-    private void init(Context context, AttributeSet attrs) {
-        paint = new Paint();
-        // 透明度: 00%=FF（不透明） 100%=00（透明）
-        paint.setColor(Color.WHITE);
-        // paint.setColor(Color.parseColor("ffffffff"));
-        paint.setStyle(Paint.Style.STROKE);
-        // 解决图片拉伸后出现锯齿的两种办法: 1.画笔上设置抗锯齿 2.画布上设置抗锯齿
-        // http://labs.easymobi.cn/?p=3819
-        paint.setFlags(Paint.ANTI_ALIAS_FLAG);
-        paint.setAntiAlias(true);
-        int clearBits = 0;
-        int setBits = Paint.ANTI_ALIAS_FLAG | Paint.FILTER_BITMAP_FLAG;
-        pfdf = new PaintFlagsDrawFilter(clearBits, setBits);
-        //由于imageview有默认底色,如黑色,设置背景为透明是为了第一次setImageBitmap时不显示圆以外方型的默认背景色
-        //但是这样在中兴nubia手机上还会首先显示正方形黑色背景,然后才变圆(解决办法,先裁成圆再setImageBitmap)
-        setBackgroundColor(context.getResources().getColor(android.R.color.transparent));
+    private void setCustomAttributes(AttributeSet attrs) {
+        TypedArray a = mContext.obtainStyledAttributes(attrs, R.styleable.roundedimageview);
+        mBorderThickness = a.getDimensionPixelSize(R.styleable.roundedimageview_border_thickness, 0);
+        mBorderOutsideColor = a.getColor(R.styleable.roundedimageview_border_outside_color, defaultColor);
+        mBorderInsideColor = a.getColor(R.styleable.roundedimageview_border_inside_color, defaultColor);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
-        int width = getWidth();
-        int height = getHeight();
-        // CCW: CounterClockwise(逆时针)
-        // CW: Clockwise(顺时针)
-        if (path == null) {
-            path = new Path();
-            path.addCircle(width / 2f, height / 2f, Math.min(width / 2f, height / 2f), Path.Direction.CCW);
-            path.close();
+        Drawable drawable = getDrawable();
+        if (drawable == null) {
+            return;
         }
-//      canvas.drawCircle(width / 2f, height / 2f, Math.min(width / 2f, height / 2f), paint);
-        // super.onDraw里面也可能有多个canvas.save
-        int saveCount = canvas.save();
-        canvas.setDrawFilter(pfdf);
-        // Region.Op.REPLACE 是显示第二次的
-//      canvas.clipPath(path, Region.Op.REPLACE);
-        canvas.clipPath(path, Region.Op.INTERSECT);
-        super.onDraw(canvas);
-        canvas.restoreToCount(saveCount);
+
+        if (getWidth() == 0 || getHeight() == 0) {
+            return;
+        }
+
+        this.measure(0, 0);
+
+        if (drawable.getClass() == NinePatchDrawable.class)
+            return;
+
+        Bitmap b = ((BitmapDrawable) drawable).getBitmap();
+        Bitmap bitmap = b.copy(Bitmap.Config.ARGB_8888, true);
+
+        if (defaultWidth == 0) {
+            defaultWidth = getWidth();
+        }
+
+        if (defaultHeight == 0) {
+            defaultHeight = getHeight();
+        }
+        int radius = 0;
+
+        if (mBorderInsideColor != defaultColor && mBorderOutsideColor != defaultColor) {// 定义画两个边框，分别为外圆边框和内圆边框
+            radius = (defaultWidth < defaultHeight ? defaultWidth : defaultHeight) / 2 - 2 * mBorderThickness;
+            // 画内圆
+            drawCircleBorder(canvas, radius + mBorderThickness / 2, mBorderInsideColor);
+            // 画外圆
+            drawCircleBorder(canvas, radius + mBorderThickness + mBorderThickness / 2, mBorderOutsideColor);
+        } else if (mBorderInsideColor != defaultColor && mBorderOutsideColor == defaultColor) {// 定义画一个边框
+            radius = (defaultWidth < defaultHeight ? defaultWidth : defaultHeight) / 2 - mBorderThickness;
+            drawCircleBorder(canvas, radius + mBorderThickness / 2, mBorderInsideColor);
+        } else if (mBorderInsideColor == defaultColor && mBorderOutsideColor != defaultColor) {// 定义画一个边框
+            radius = (defaultWidth < defaultHeight ? defaultWidth : defaultHeight) / 2 - mBorderThickness;
+            drawCircleBorder(canvas, radius + mBorderThickness / 2, mBorderOutsideColor);
+        } else {// 没有边框
+            radius = (defaultWidth < defaultHeight ? defaultWidth : defaultHeight) / 2;
+        }
+
+        Bitmap roundBitmap = getCroppedRoundBitmap(bitmap, radius);
+        canvas.drawBitmap(roundBitmap, defaultWidth / 2 - radius, defaultHeight / 2 - radius, null);
+    }
+
+    /**
+     * 获取裁剪后的圆形图片
+     *
+     * @param radius 半径
+     */
+    public Bitmap getCroppedRoundBitmap(Bitmap bmp, int radius) {
+        Bitmap scaledSrcBmp;
+        int diameter = radius * 2;
+        // 为了防止宽高不相等，造成圆形图片变形，因此截取长方形中处于中间位置最大的正方形图片
+        int bmpWidth = bmp.getWidth();
+        int bmpHeight = bmp.getHeight();
+        int squareWidth = 0, squareHeight = 0;
+        int x = 0, y = 0;
+        Bitmap squareBitmap;
+        if (bmpHeight > bmpWidth) {// 高大于宽
+            squareWidth = squareHeight = bmpWidth;
+            x = 0;
+            y = (bmpHeight - bmpWidth) / 2;
+            // 截取正方形图片
+            squareBitmap = Bitmap.createBitmap(bmp, x, y, squareWidth, squareHeight);
+        } else if (bmpHeight < bmpWidth) {// 宽大于高
+            squareWidth = squareHeight = bmpHeight;
+            x = (bmpWidth - bmpHeight) / 2;
+            y = 0;
+            squareBitmap = Bitmap.createBitmap(bmp, x, y, squareWidth, squareHeight);
+        } else {
+            squareBitmap = bmp;
+        }
+
+        if (squareBitmap.getWidth() != diameter || squareBitmap.getHeight() != diameter) {
+            scaledSrcBmp = Bitmap.createScaledBitmap(squareBitmap, diameter, diameter, true);
+        } else {
+            scaledSrcBmp = squareBitmap;
+        }
+
+        Bitmap output = Bitmap.createBitmap(scaledSrcBmp.getWidth(), scaledSrcBmp.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(output);
+        Paint paint = new Paint();
+        Rect rect = new Rect(0, 0, scaledSrcBmp.getWidth(), scaledSrcBmp.getHeight());
+        paint.setAntiAlias(true);
+        paint.setFilterBitmap(true);
+        paint.setDither(true);
+        canvas.drawARGB(0, 0, 0, 0);
+        canvas.drawCircle(scaledSrcBmp.getWidth() / 2, scaledSrcBmp.getHeight() / 2, scaledSrcBmp.getWidth() / 2, paint);
+        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
+        canvas.drawBitmap(scaledSrcBmp, rect, rect, paint);
+        bmp = null;
+        squareBitmap = null;
+        scaledSrcBmp = null;
+        return output;
+    }
+
+    /**
+     * 边缘画圆
+     */
+    private void drawCircleBorder(Canvas canvas, int radius, int color) {
+        Paint paint = new Paint();
+        /* 去锯齿 */
+        paint.setAntiAlias(true);
+        paint.setFilterBitmap(true);
+        paint.setDither(true);
+        paint.setColor(color);
+        /* 设置paint的　style　为STROKE：空心 */
+        paint.setStyle(Paint.Style.STROKE);
+        /* 设置paint的外框宽度 */
+        paint.setStrokeWidth(mBorderThickness);
+        canvas.drawCircle(defaultWidth / 2, defaultHeight / 2, radius, paint);
     }
 }

@@ -14,6 +14,7 @@
         android:layout_marginTop="54dp"
         android:scaleType="fitXY"
         android:src="@mipmap/share"
-        app:border_color="@color/blue"
-        app:border_width="2dp" />
+        app:border_inside_color="#bc0978"
+        app:border_outside_color="#ba3456"
+        app:border_thickness="1dp" />
 </LinearLayout>
