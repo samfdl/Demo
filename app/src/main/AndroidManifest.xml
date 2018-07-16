@@ -23,6 +23,7 @@
         <activity android:name=".custom.ReboundActivity" />
         <activity android:name=".custom.IosActionSheetActivity" />
         <activity android:name=".custom.BottomUpActivity" />
+        <activity android:name=".custom.CircleImageViewActivity" />
 
         <activity android:name=".graphic.GraphicActivity" />
         <activity android:name=".graphic.CircleActivity" />

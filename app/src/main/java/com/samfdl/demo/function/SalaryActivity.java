@@ -79,7 +79,7 @@ public class SalaryActivity extends AppCompatActivity {
                                 baoxianJisuan(isBeijing);
                             }
                             mSalary.setText(format.format(salary));
-                            jisuan1();
+                            jisuan2();
                         }
                     }
                 }).create().show();
@@ -97,7 +97,7 @@ public class SalaryActivity extends AppCompatActivity {
                             gongjijin = Double.valueOf(text);
                             gongjijinJishu = gongjijin / gongjijinlv;
                             gongjijinJisuan();
-                            jisuan1();
+                            jisuan2();
                         }
                     }
                 }).create().show();
@@ -115,7 +115,7 @@ public class SalaryActivity extends AppCompatActivity {
                             yanglao = Double.valueOf(text);
                             baoxianJishu = yanglao / yanglaolv;
                             baoxianJisuan(isBeijing);
-                            jisuan1();
+                            jisuan2();
                         }
                     }
                 }).create().show();
@@ -132,7 +132,7 @@ public class SalaryActivity extends AppCompatActivity {
                         if (text.length() > 0) {
                             buzhu = Double.valueOf(text);
                             mBuzhu.setText(format.format(buzhu));
-                            jisuan1();
+                            jisuan2();
                         }
                     }
                 }).create().show();
@@ -158,7 +158,7 @@ public class SalaryActivity extends AppCompatActivity {
         mShiye.setText(format.format(shiye));
     }
 
-    private void jisuan() {
+    private void jisuan2() {
         suodeshui = salary + buzhu - (gongjijin + yanglao + yiliao + shiye)
                 - 3500;
         if (suodeshui <= 0) {
@@ -236,7 +236,7 @@ public class SalaryActivity extends AppCompatActivity {
                     isBeijing = false;
                 }
                 baoxianJisuan(isBeijing);
-                jisuan1();
+                jisuan2();
             }
 
             public void onNothingSelected(AdapterView<?> arg0) {

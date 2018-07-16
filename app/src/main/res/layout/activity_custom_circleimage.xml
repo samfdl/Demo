@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <com.samfdl.demo.custom.view.CircleImageView
+        android:id="@+id/head"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="54dp"
+        android:scaleType="fitXY"
+        android:src="@mipmap/share"
+        app:border_color="@color/blue"
+        app:border_width="2dp" />
+</LinearLayout>

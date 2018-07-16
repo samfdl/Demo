@@ -28,6 +28,7 @@ public class CustomActivity extends AppCompatActivity {
         list.add("下拉刷新的阻尼回弹效果");
         list.add("仿IOS底部弹出菜单");
         list.add("软键盘弹出，底部控件上移");
+        list.add("圆形头像");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -49,6 +50,9 @@ public class CustomActivity extends AppCompatActivity {
                         break;
                     case 4:
                         intent = new Intent(CustomActivity.this, BottomUpActivity.class);
+                        break;
+                    case 5:
+                        intent = new Intent(CustomActivity.this, CircleImageViewActivity.class);
                         break;
                 }
                 startActivity(intent);
