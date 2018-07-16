@@ -12,9 +12,7 @@
         android:layout_width="72dp"
         android:layout_height="72dp"
         android:layout_marginTop="54dp"
-        android:scaleType="fitXY"
         android:src="@mipmap/share"
-        app:border_inside_color="#bc0978"
-        app:border_outside_color="#ba3456"
-        app:border_thickness="1dp" />
+        app:border_color="#ccc"
+        app:border_width="2dp" />
 </LinearLayout>
