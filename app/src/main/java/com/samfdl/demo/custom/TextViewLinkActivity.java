@@ -8,18 +8,24 @@ import android.text.SpannableStringBuilder;
 import android.text.style.ClickableSpan;
 import android.text.style.URLSpan;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.samfdl.demo.R;
+import com.samfdl.demo.custom.view.LinkTextView;
 
-public class TextViewLinkActivity extends AppCompatActivity {
+public class TextViewLinkActivity extends AppCompatActivity implements View.OnClickListener {
+    private LinearLayout layout;
     private TextView content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_textviewlink);
+
+        layout = findViewById(R.id.layout);
+        layout.setOnClickListener(this);
 
         content = findViewById(R.id.content);
 
@@ -36,6 +42,13 @@ public class TextViewLinkActivity extends AppCompatActivity {
             }
             content.setText(style);
         }
+
+        content.setMovementMethod(LinkTextView.LocalLinkMovementMethod.getInstance());
+    }
+
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(TextViewLinkActivity.this, "无链接的文本", Toast.LENGTH_SHORT).show();
     }
 
     private class MyURLSpan extends ClickableSpan {
