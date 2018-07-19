@@ -24,6 +24,8 @@
         <activity android:name=".custom.IosActionSheetActivity" />
         <activity android:name=".custom.BottomUpActivity" />
         <activity android:name=".custom.CircleImageViewActivity" />
+        <activity android:name=".custom.TextViewLinkActivity" />
+        <activity android:name=".custom.WebViewActivity" />
 
         <activity android:name=".graphic.GraphicActivity" />
         <activity android:name=".graphic.CircleActivity" />
