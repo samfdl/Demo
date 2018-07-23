@@ -40,6 +40,9 @@ dependencies {
     // 引入 recyclerview
     implementation 'com.android.support:recyclerview-v7:27.1.1'
 
+    // 引入折叠toolbar
+    implementation 'com.android.support:design:27.1.1'
+
     // 集成 ZXing 二维码
     implementation 'com.google.zxing:core:3.3.3'
 

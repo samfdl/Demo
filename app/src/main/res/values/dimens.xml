@@ -1,0 +1,4 @@
+<resources>
+    <dimen name="custom_collapsingtoolbar_app_bar_height">180dp</dimen>
+    <dimen name="custom_collapsingtoolbar_tool_bar_height">50dp</dimen>
+</resources>

@@ -30,6 +30,7 @@ public class CustomActivity extends AppCompatActivity {
         list.add("软键盘弹出，底部控件上移");
         list.add("圆形头像");
         list.add("TextView超级链接");
+        list.add("可折叠式标题栏");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -57,6 +58,9 @@ public class CustomActivity extends AppCompatActivity {
                         break;
                     case 6:
                         intent = new Intent(CustomActivity.this, TextViewLinkActivity.class);
+                        break;
+                    case 7:
+                        intent = new Intent(CustomActivity.this, CollapsingToolbarActivity.class);
                         break;
                 }
                 startActivity(intent);

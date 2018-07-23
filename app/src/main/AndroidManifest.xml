@@ -26,6 +26,9 @@
         <activity android:name=".custom.CircleImageViewActivity" />
         <activity android:name=".custom.TextViewLinkActivity" />
         <activity android:name=".custom.WebViewActivity" />
+        <activity
+            android:name=".custom.CollapsingToolbarActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name=".graphic.GraphicActivity" />
         <activity android:name=".graphic.CircleActivity" />
