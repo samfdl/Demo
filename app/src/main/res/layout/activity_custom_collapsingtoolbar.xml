@@ -13,7 +13,7 @@
         <android.support.design.widget.AppBarLayout
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="191dp"
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <android.support.design.widget.CollapsingToolbarLayout
@@ -27,14 +27,14 @@
                     android:id="@+id/image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitXY"
                     android:src="@mipmap/share"
                     app:layout_collapseMode="none" />
 
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"
+                    android:layout_height="79dp"
                     app:contentInsetStart="0dp"
                     app:layout_collapseMode="none"
                     app:popupTheme="@style/AppTheme.PopupOverlay" />
@@ -47,34 +47,104 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.v4.widget.NestedScrollView>
+    </android.support.design.widget.CoordinatorLayout>
+
+    <RelativeLayout
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/white"
+        android:paddingLeft="12dp">
+
+        <LinearLayout
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="16dp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="20dp"
-                android:text="@string/custom_collapsingtoolbar_large_text" />
-        </android.support.v4.widget.NestedScrollView>
-    </android.support.design.widget.CoordinatorLayout>
-    <!-- 搜索框布局-->
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
+                android:layout_marginLeft="5dp"
+                android:text="gemmall_back"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/brief"
+            android:layout_width="42dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:padding="13.5dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/tab"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="191dp"
+        android:background="@color/function_salary_green_txt"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom">
 
-        <TextView
-            android:id="@+id/textView"
+        <LinearLayout
+            android:id="@+id/news_layout"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@color/colorPrimary" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/fab"
+            <TextView
+                android:id="@+id/news_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="90dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="快讯"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/news_line"
+                android:layout_width="100dp"
+                android:layout_height="2dp"
+                android:layout_marginLeft="57dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/dynamic_layout"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_margin="10dp"
-            android:background="@drawable/shape_custom_iosactionsheet_dialog_bg"
-            android:focusable="false" />
-    </RelativeLayout>
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/dynamic_text"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="63.5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="动态"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/dynamic_line"
+                android:layout_width="100dp"
+                android:layout_height="2dp"
+                android:layout_marginLeft="30.5dp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
 </FrameLayout>

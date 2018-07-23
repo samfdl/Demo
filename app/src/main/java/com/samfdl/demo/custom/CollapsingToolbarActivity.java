@@ -5,8 +5,8 @@ import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.samfdl.demo.R;
 
@@ -26,8 +26,8 @@ public class CollapsingToolbarActivity extends AppCompatActivity {
     AppBarLayout app_bar;
     ImageView image;
 
-    RelativeLayout relativeLayout;
-    TextView textView;
+    RelativeLayout title;
+    LinearLayout tab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,10 +39,10 @@ public class CollapsingToolbarActivity extends AppCompatActivity {
         app_bar = findViewById(R.id.app_bar);
         image = findViewById(R.id.image);
 
-        relativeLayout = findViewById(R.id.relativeLayout);
-        textView = findViewById(R.id.textView);
+        title = findViewById(R.id.title);
+        tab = findViewById(R.id.tab);
 
-        textView.setAlpha(0f);
+        title.setAlpha(0f);
         totalHeight = getResources().getDimension(R.dimen.custom_collapsingtoolbar_app_bar_height);
         toolBarHeight = getResources().getDimension(R.dimen.custom_collapsingtoolbar_tool_bar_height);
         offSetHeight = totalHeight - toolBarHeight;
@@ -55,8 +55,8 @@ public class CollapsingToolbarActivity extends AppCompatActivity {
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 //第一次进入获取高度，以及差值 高度差比值
                 if (llHeight == 0) {
-                    llHeight = relativeLayout.getMeasuredHeight();
-                    params = (FrameLayout.LayoutParams) relativeLayout.getLayoutParams();
+                    llHeight = tab.getMeasuredHeight();
+                    params = (FrameLayout.LayoutParams) tab.getLayoutParams();
 
                     //算出高度偏移量比值  相对与llHeight
                     llHeightOffScale = 1.0f - (toolBarHeight / llHeight);
@@ -76,7 +76,7 @@ public class CollapsingToolbarActivity extends AppCompatActivity {
                 float distance = llOffDistance - (-verticalOffset) * llOffDistanceScale;
 
                 image.setAlpha(1.0f - alphaScale);
-                textView.setAlpha(alphaScale);
+                title.setAlpha(alphaScale);
                 params.height = (int) (llHeight * llHeightScale);
                 params.setMargins(0, (int) distance, 0, 0);
 
