@@ -1,16 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/fl"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff">
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.m520it.myapplication.TestScrollActivity">
+        android:layout_height="match_parent">
 
         <android.support.design.widget.AppBarLayout
             android:id="@+id/app_bar"
@@ -19,7 +17,6 @@
             android:theme="@style/AppTheme.AppBarOverlay">
 
             <android.support.design.widget.CollapsingToolbarLayout
-                android:id="@+id/toolbar_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:contentScrim="@android:color/transparent"
@@ -59,7 +56,7 @@
     </android.support.design.widget.CoordinatorLayout>
     <!-- 搜索框布局-->
     <RelativeLayout
-        android:id="@+id/ll"
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="150dp"
@@ -67,7 +64,7 @@
         app:layout_anchorGravity="bottom">
 
         <TextView
-            android:id="@+id/bac"
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@color/colorPrimary" />
