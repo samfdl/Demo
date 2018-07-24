@@ -23,10 +23,6 @@ public class CollapsingToolbarActivity extends AppCompatActivity {
 
     private float toolBarHeight;    //toolBar高度
     private float offSetHeight;     //总高度 -  toolBar高度  布局位移值
-    private float tabHeight;        //tab高度
-
-    private float llOffDistance;        //距离差
-    private float llOffDistanceScale;   //距离差比值
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +38,11 @@ public class CollapsingToolbarActivity extends AppCompatActivity {
         tab = findViewById(R.id.tab);
 
         title.setAlpha(0f);
-        float totalHeight = getResources().getDimension(R.dimen.custom_collapsingtoolbar_app_bar_height);
+
+        //第一次进入获取高度，以及差值 高度差比值
+        params = (FrameLayout.LayoutParams) tab.getLayoutParams();
+
+        final float totalHeight = params.topMargin;
         toolBarHeight = getResources().getDimension(R.dimen.custom_collapsingtoolbar_tool_bar_height);
         offSetHeight = totalHeight - toolBarHeight;
 
@@ -52,28 +52,11 @@ public class CollapsingToolbarActivity extends AppCompatActivity {
         app_bar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                //第一次进入获取高度，以及差值 高度差比值
-                if (tabHeight == 0) {
-                    tabHeight = tab.getMeasuredHeight();
-                    params = (FrameLayout.LayoutParams) tab.getLayoutParams();
-
-                    //得到滑动差值 就是布局marginTop
-                    llOffDistance = params.topMargin;
-                    //得到滑动比值
-                    llOffDistanceScale = llOffDistance / offSetHeight;
-
-                    System.out.println("llOffDistanceScale: " + llOffDistanceScale);
-                }
-
-                System.out.println("verticalOffset: " + verticalOffset);
-
                 //滑动一次 得到渐变缩放值
-                float alphaScale = (-verticalOffset) / offSetHeight;
-
-                System.out.println("alphaScale: " + alphaScale);
+                float alphaScale = -verticalOffset / offSetHeight;
 
                 //计算maigintop值
-                float distance = llOffDistance - (-verticalOffset) * llOffDistanceScale;
+                float distance = totalHeight + verticalOffset;
 
                 title.setAlpha(alphaScale);
                 image.setAlpha(1.0f - alphaScale);

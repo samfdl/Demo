@@ -34,7 +34,7 @@
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="79dp"
+                    android:layout_height="45dp"
                     app:contentInsetStart="0dp"
                     app:layout_collapseMode="none"
                     app:popupTheme="@style/AppTheme.PopupOverlay" />
