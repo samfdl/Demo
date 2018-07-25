@@ -3,7 +3,7 @@ package com.samfdl.demo.custom;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.FrameLayout;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -11,15 +11,15 @@ import android.widget.RelativeLayout;
 import com.samfdl.demo.R;
 
 public class CollapsingToolbarActivity extends AppCompatActivity {
-    FrameLayout frameLayout;
+    RelativeLayout frameLayout;
 
     AppBarLayout app_bar;
     ImageView image;
 
-    RelativeLayout title;
+    View title_background;
     LinearLayout tab;
 
-    private FrameLayout.LayoutParams params;
+    private RelativeLayout.LayoutParams params;
 
     private float toolBarHeight;    //toolBar高度
     private float offSetHeight;     //总高度 -  toolBar高度  布局位移值
@@ -34,21 +34,18 @@ public class CollapsingToolbarActivity extends AppCompatActivity {
         app_bar = findViewById(R.id.app_bar);
         image = findViewById(R.id.image);
 
-        title = findViewById(R.id.title);
+        title_background = findViewById(R.id.title_background);
         tab = findViewById(R.id.tab);
 
-        title.setAlpha(0f);
+        title_background.setAlpha(0f);
 
         //第一次进入获取高度，以及差值 高度差比值
-        params = (FrameLayout.LayoutParams) tab.getLayoutParams();
+        params = (RelativeLayout.LayoutParams) tab.getLayoutParams();
 
         final float totalHeight = params.topMargin;
         toolBarHeight = getResources().getDimension(R.dimen.custom_collapsingtoolbar_tool_bar_height);
         offSetHeight = totalHeight - toolBarHeight;
 
-        /**
-         *   移动效果值／最终效果值 =  移动距离／ 能移动总距离（确定）
-         */
         app_bar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
@@ -58,7 +55,7 @@ public class CollapsingToolbarActivity extends AppCompatActivity {
                 //计算maigintop值
                 float distance = totalHeight + verticalOffset;
 
-                title.setAlpha(alphaScale);
+                title_background.setAlpha(alphaScale);
                 image.setAlpha(1.0f - alphaScale);
                 params.setMargins(0, (int) distance, 0, 0);
 

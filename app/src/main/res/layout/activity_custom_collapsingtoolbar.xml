@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/frameLayout"
     android:layout_width="match_parent"
@@ -50,14 +50,19 @@
     <RelativeLayout
         android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:background="@color/white"
-        android:paddingLeft="12dp">
+        android:layout_height="45dp">
+
+        <View
+            android:id="@+id/title_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
 
         <LinearLayout
             android:id="@+id/back"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="12dp"
             android:gravity="center_vertical">
 
             <View
@@ -85,9 +90,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="191dp"
-        android:background="@color/function_salary_green_txt"
-        app:layout_anchor="@id/app_bar"
-        app:layout_anchorGravity="bottom">
+        android:background="@color/function_salary_green_txt">
 
         <LinearLayout
             android:id="@+id/news_layout"
@@ -140,4 +143,4 @@
                 android:visibility="gone" />
         </LinearLayout>
     </LinearLayout>
-</FrameLayout>
+</RelativeLayout>
