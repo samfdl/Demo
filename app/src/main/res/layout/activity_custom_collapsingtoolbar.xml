@@ -1,146 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fff">
 
-    <android.support.design.widget.CoordinatorLayout
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <android.support.design.widget.AppBarLayout
-            android:id="@+id/app_bar"
+        <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="191dp">
+            android:layout_height="191dp"
+            android:minHeight="45dp"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
 
-            <android.support.design.widget.CollapsingToolbarLayout
+            <ImageView
+                android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
+                android:scaleType="fitXY"
+                android:src="@mipmap/share"
+                app:layout_collapseMode="parallax" />
 
-                <ImageView
-                    android:id="@+id/image"
+            <RelativeLayout
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                app:layout_collapseMode="pin">
+
+                <View
+                    android:id="@+id/title_background"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="fitXY"
-                    android:src="@mipmap/share" />
+                    android:background="@color/white" />
 
-                <android.support.v7.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp" />
+                <LinearLayout
+                    android:id="@+id/back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="12dp"
+                    android:gravity="center_vertical">
 
-            </android.support.design.widget.CollapsingToolbarLayout>
-        </android.support.design.widget.AppBarLayout>
+                    <View
+                        android:layout_width="8dp"
+                        android:layout_height="16dp" />
 
-        <android.support.v4.widget.NestedScrollView
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="gemmall_back"
+                        android:textSize="15dp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/brief"
+                    android:layout_width="42dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:padding="13.5dp" />
+            </RelativeLayout>
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <LinearLayout
+            android:id="@+id/tab"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:layout_height="48dp"
+            android:background="@color/function_salary_green_txt">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerview"
+            <LinearLayout
+                android:id="@+id/news_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </android.support.v4.widget.NestedScrollView>
-    </android.support.design.widget.CoordinatorLayout>
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/title"
+                <TextView
+                    android:id="@+id/news_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="90dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="快讯"
+                    android:textSize="17dp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/news_line"
+                    android:layout_width="100dp"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="57dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/dynamic_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/dynamic_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="63.5dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="动态"
+                    android:textSize="17dp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:id="@+id/dynamic_line"
+                    android:layout_width="100dp"
+                    android:layout_height="2dp"
+                    android:layout_marginLeft="30.5dp"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="45dp">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <View
-            android:id="@+id/title_background"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white" />
-
-        <LinearLayout
-            android:id="@+id/back"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="12dp"
-            android:gravity="center_vertical">
-
-            <View
-                android:layout_width="8dp"
-                android:layout_height="16dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:text="gemmall_back"
-                android:textSize="15dp" />
-        </LinearLayout>
-
-        <ImageView
-            android:id="@+id/brief"
-            android:layout_width="42dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:padding="13.5dp" />
-    </RelativeLayout>
-
-    <LinearLayout
-        android:id="@+id/tab"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginTop="191dp"
-        android:background="@color/function_salary_green_txt">
-
-        <LinearLayout
-            android:id="@+id/news_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/news_text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="90dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="快讯"
-                android:textSize="17dp"
-                android:textStyle="bold" />
-
-            <View
-                android:id="@+id/news_line"
-                android:layout_width="100dp"
-                android:layout_height="2dp"
-                android:layout_marginLeft="57dp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/dynamic_layout"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/dynamic_text"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="63.5dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="动态"
-                android:textSize="17dp"
-                android:textStyle="bold" />
-
-            <View
-                android:id="@+id/dynamic_line"
-                android:layout_width="100dp"
-                android:layout_height="2dp"
-                android:layout_marginLeft="30.5dp"
-                android:visibility="gone" />
-        </LinearLayout>
-    </LinearLayout>
-</RelativeLayout>
+            android:layout_height="wrap_content"
+            android:text="@string/custom_collapsingtoolbar_large_text" />
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>
