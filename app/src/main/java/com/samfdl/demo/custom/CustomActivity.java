@@ -32,6 +32,7 @@ public class CustomActivity extends AppCompatActivity {
         list.add("TextView超级链接");
         list.add("可折叠式标题栏");
         list.add("ViewPager");
+        list.add("调用系统相机拍照");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -65,6 +66,9 @@ public class CustomActivity extends AppCompatActivity {
                         break;
                     case 8:
                         intent = new Intent(CustomActivity.this, ViewPagerActivity.class);
+                        break;
+                    case 9:
+                        intent = new Intent(CustomActivity.this, PhotoActivity.class);
                         break;
                 }
                 startActivity(intent);
