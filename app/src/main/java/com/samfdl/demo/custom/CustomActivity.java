@@ -31,6 +31,7 @@ public class CustomActivity extends AppCompatActivity {
         list.add("圆形头像");
         list.add("TextView超级链接");
         list.add("可折叠式标题栏");
+        list.add("ViewPager");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -61,6 +62,9 @@ public class CustomActivity extends AppCompatActivity {
                         break;
                     case 7:
                         intent = new Intent(CustomActivity.this, CollapsingToolbarActivity.class);
+                        break;
+                    case 8:
+                        intent = new Intent(CustomActivity.this, ViewPagerActivity.class);
                         break;
                 }
                 startActivity(intent);

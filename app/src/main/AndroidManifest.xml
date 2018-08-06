@@ -29,6 +29,7 @@
         <activity
             android:name=".custom.CollapsingToolbarActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".custom.ViewPagerActivity" />
 
         <activity android:name=".graphic.GraphicActivity" />
         <activity android:name=".graphic.CircleActivity" />
