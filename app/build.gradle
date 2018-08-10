@@ -60,6 +60,10 @@ dependencies {
 
     // 集成 okhttp
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+
+    // 集成 超长图控件
+    implementation 'com.davemorrissey.labs:subsampling-scale-image-view:3.5.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
 }
 
 // 谷歌崩溃统计 firebase
