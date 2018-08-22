@@ -12,6 +12,7 @@ import com.samfdl.demo.custom.CustomActivity;
 import com.samfdl.demo.function.SalaryActivity;
 import com.samfdl.demo.graphic.GraphicActivity;
 import com.samfdl.demo.lib.LibActivity;
+import com.samfdl.demo.math.MathActivity;
 import com.tencent.stat.StatService;
 
 import java.util.ArrayList;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         list.add("动画");
         list.add("小功能");
         list.add("集成库详单");
+        list.add("算法题");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -54,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 5:
                         intent = new Intent(MainActivity.this, LibActivity.class);
+                        break;
+                    case 6:
+                        intent = new Intent(MainActivity.this, MathActivity.class);
                         break;
                 }
                 startActivity(intent);
