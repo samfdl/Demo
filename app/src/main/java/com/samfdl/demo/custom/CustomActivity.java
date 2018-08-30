@@ -34,6 +34,7 @@ public class CustomActivity extends AppCompatActivity {
         list.add("ViewPager");
         list.add("调用系统相机拍照");
         list.add("超长图");
+        list.add("仿IOS日期选择器 wheelview");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -73,6 +74,9 @@ public class CustomActivity extends AppCompatActivity {
                         break;
                     case 10:
                         intent = new Intent(CustomActivity.this, LongPictureActivity.class);
+                        break;
+                    case 11:
+                        intent = new Intent(CustomActivity.this, WheelViewActivity.class);
                         break;
                 }
                 startActivity(intent);
