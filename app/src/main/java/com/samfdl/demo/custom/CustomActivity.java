@@ -35,6 +35,7 @@ public class CustomActivity extends AppCompatActivity {
         list.add("调用系统相机拍照");
         list.add("超长图");
         list.add("仿IOS日期选择器 wheelview");
+        list.add("隐藏底部导航栏");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -77,6 +78,9 @@ public class CustomActivity extends AppCompatActivity {
                         break;
                     case 11:
                         intent = new Intent(CustomActivity.this, WheelViewActivity.class);
+                        break;
+                    case 12:
+                        intent = new Intent(CustomActivity.this, HideVirtualKeysActivity.class);
                         break;
                 }
                 startActivity(intent);

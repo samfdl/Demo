@@ -36,6 +36,7 @@
         <activity android:name=".custom.PhotoActivity" />
         <activity android:name=".custom.LongPictureActivity" />
         <activity android:name=".custom.WheelViewActivity" />
+        <activity android:name=".custom.HideVirtualKeysActivity" />
 
         <activity android:name=".graphic.GraphicActivity" />
         <activity android:name=".graphic.CircleActivity" />
