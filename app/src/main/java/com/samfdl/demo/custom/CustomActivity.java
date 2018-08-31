@@ -36,6 +36,7 @@ public class CustomActivity extends AppCompatActivity {
         list.add("超长图");
         list.add("仿IOS日期选择器 wheelview");
         list.add("隐藏底部导航栏");
+        list.add("调用系统相册");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -81,6 +82,9 @@ public class CustomActivity extends AppCompatActivity {
                         break;
                     case 12:
                         intent = new Intent(CustomActivity.this, HideVirtualKeysActivity.class);
+                        break;
+                    case 13:
+                        intent = new Intent(CustomActivity.this, AlbumActivity.class);
                         break;
                 }
                 startActivity(intent);
