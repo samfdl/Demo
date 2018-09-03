@@ -38,6 +38,7 @@
         <activity android:name=".custom.WheelViewActivity" />
         <activity android:name=".custom.HideVirtualKeysActivity" />
         <activity android:name=".custom.AlbumActivity" />
+        <activity android:name=".custom.PreviewActivity" />
 
         <activity android:name=".graphic.GraphicActivity" />
         <activity android:name=".graphic.CircleActivity" />
