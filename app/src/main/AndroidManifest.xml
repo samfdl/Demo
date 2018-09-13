@@ -49,6 +49,7 @@
 
         <activity android:name=".lib.LibActivity" />
         <activity android:name=".lib.QRCodeActivity" />
+        <activity android:name=".lib.JsBridgeActivity" />
 
         <activity android:name=".math.MathActivity" />
 

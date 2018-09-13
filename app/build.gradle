@@ -66,6 +66,9 @@ dependencies {
 
     // 集成 glide
     implementation 'com.github.bumptech.glide:glide:3.7.0'
+
+    // 集成 jsbridge
+    implementation 'com.github.lzyzsd:jsbridge:1.0.4'
 }
 
 // 谷歌崩溃统计 firebase

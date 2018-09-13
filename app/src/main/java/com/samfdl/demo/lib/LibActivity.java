@@ -29,6 +29,7 @@ public class LibActivity extends AppCompatActivity {
         list.add("腾讯统计");
         list.add("谷歌崩溃统计 firebase");
         list.add("OkHttp");
+        list.add("JsBridge");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -38,6 +39,9 @@ public class LibActivity extends AppCompatActivity {
                 switch (position) {
                     case 0:
                         intent = new Intent(LibActivity.this, QRCodeActivity.class);
+                        break;
+                    case 5:
+                        intent = new Intent(LibActivity.this, JsBridgeActivity.class);
                         break;
                 }
                 startActivity(intent);
