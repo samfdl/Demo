@@ -30,6 +30,7 @@ public class LibActivity extends AppCompatActivity {
         list.add("谷歌崩溃统计 firebase");
         list.add("OkHttp");
         list.add("JsBridge");
+        list.add("腾讯 X5 TBS 浏览器内核");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -42,6 +43,9 @@ public class LibActivity extends AppCompatActivity {
                         break;
                     case 5:
                         intent = new Intent(LibActivity.this, JsBridgeActivity.class);
+                        break;
+                    case 6:
+                        intent = new Intent(LibActivity.this, X5WebViewActivity.class);
                         break;
                 }
                 startActivity(intent);

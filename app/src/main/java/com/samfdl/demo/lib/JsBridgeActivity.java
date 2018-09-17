@@ -52,8 +52,8 @@ public class JsBridgeActivity extends AppCompatActivity implements View.OnClickL
             }
         });
 
-//        webView.loadUrl("file:///android_asset/demo.html");
-        webView.loadUrl("http://tst.candy.one/jsbridge");
+        webView.loadUrl("file:///android_asset/demo.html");
+//        webView.loadUrl("http://tst.candy.one/jsbridge");
 
         webView.registerHandler("submitFromWeb", new BridgeHandler() {
             @Override

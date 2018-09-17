@@ -5,6 +5,13 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
+    <!-- 集成 腾讯 X5 TBS 浏览器WebView 内核 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -50,6 +57,7 @@
         <activity android:name=".lib.LibActivity" />
         <activity android:name=".lib.QRCodeActivity" />
         <activity android:name=".lib.JsBridgeActivity" />
+        <activity android:name=".lib.X5WebViewActivity" />
 
         <activity android:name=".math.MathActivity" />
 
