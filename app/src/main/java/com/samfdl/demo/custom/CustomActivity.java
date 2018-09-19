@@ -37,6 +37,7 @@ public class CustomActivity extends AppCompatActivity {
         list.add("仿IOS日期选择器 wheelview");
         list.add("隐藏底部导航栏");
         list.add("调用系统相册");
+        list.add("图片轮播（banner）");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -85,6 +86,9 @@ public class CustomActivity extends AppCompatActivity {
                         break;
                     case 13:
                         intent = new Intent(CustomActivity.this, AlbumActivity.class);
+                        break;
+                    case 14:
+                        intent = new Intent(CustomActivity.this, BannerActivity.class);
                         break;
                 }
                 startActivity(intent);

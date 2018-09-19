@@ -110,9 +110,8 @@ public class X5WebViewActivity extends AppCompatActivity implements View.OnClick
 
 //            x5WebView.loadUrl("javascript:alert(234567)");
 
-//
-//            x5WebView.loadUrl("javascript:tinfiniteListener.uploadCallback(" + event.json + ")");
-            x5WebView.loadUrl("javascript:tinfiniteListener.uploadCallback(JSON.stringify(" + event.json + "))");
+//            x5WebView.loadUrl("javascript:tinfiniteListener.uploadCallback('abc')");
+            x5WebView.loadUrl("javascript:tinfiniteListener.uploadCallback(JSON.stringify('" + event.json + "'))");
         }
     }
 
