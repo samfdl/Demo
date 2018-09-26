@@ -38,6 +38,7 @@ public class CustomActivity extends AppCompatActivity {
         list.add("隐藏底部导航栏");
         list.add("调用系统相册");
         list.add("图片轮播（banner）");
+        list.add("移动控件");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -89,6 +90,9 @@ public class CustomActivity extends AppCompatActivity {
                         break;
                     case 14:
                         intent = new Intent(CustomActivity.this, BannerActivity.class);
+                        break;
+                    case 15:
+                        intent = new Intent(CustomActivity.this, MoveViewActivity.class);
                         break;
                 }
                 startActivity(intent);

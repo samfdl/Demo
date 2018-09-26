@@ -47,6 +47,7 @@
         <activity android:name=".custom.AlbumActivity" />
         <activity android:name=".custom.PreviewActivity" />
         <activity android:name=".custom.BannerActivity" />
+        <activity android:name=".custom.MoveViewActivity" />
 
         <activity android:name=".graphic.GraphicActivity" />
         <activity android:name=".graphic.CircleActivity" />
