@@ -5,7 +5,7 @@
     android:background="@color/colorPrimary">
 
     <com.youzan.androidsdkx5.YouzanBrowser
-        android:id="@+id/view"
+        android:id="@+id/webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
