@@ -11,6 +11,6 @@ public class MyApplication extends Application {
         super.onCreate();
 
         // 初始化有赞云SDK
-        YouzanSDK.init(this, "client_id", new YouZanSDKX5Adapter());
+        YouzanSDK.init(this, "292f38b8e5b6417f0c", new YouZanSDKX5Adapter());
     }
 }

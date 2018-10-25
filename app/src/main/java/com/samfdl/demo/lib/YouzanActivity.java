@@ -47,9 +47,9 @@ public class YouzanActivity extends AppCompatActivity {
                     //       AppUserManager.isLogin()) { //判断App内的用户是否登录
                     //调用login接口, 获取数据, 组装成YouzanToken, 回传给SDK
                     YouzanToken token = new YouzanToken();
-                    token.setAccessToken("接口返回的access_token");
-                    token.setCookieKey("接口返回的cookie_key");
-                    token.setCookieValue("接口返回的cookie_value");
+                    token.setAccessToken("1e58998a028a3272b50700a510a5466e");
+                    token.setCookieKey("open_cookie_292f38b8e5b6417f0c");
+                    token.setCookieValue("YZ505053888978661376YZJ5OytoRq");
 
                     // 这里注意调用顺序。先传递给sdk，再刷新view
                     YouzanSDK.sync(getApplicationContext(), token);
