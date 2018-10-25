@@ -24,6 +24,8 @@ allprojects {
 
         // 集成 jsbridge
         maven { url "https://jitpack.io" }
+        // 集成 有赞云
+        maven { url 'https://dl.bintray.com/youzanyun/maven/' }
     }
 }
 

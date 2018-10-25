@@ -59,8 +59,12 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:3.7.0'
     // 集成 jsbridge
     implementation 'com.github.lzyzsd:jsbridge:1.0.4'
-    // 集成 腾讯 X5 TBS 浏览器WebView 内核
-    implementation files('D:/StudioProjects/Demo/libs/tbs_sdk_thirdapp_v3.6.0.1325_43613_sharewithdownload_withoutGame_obfs_20180807_151115.jar')
+    // 集成 腾讯 X5 TBS 浏览器WebView 内核 因为跟有赞云重复集成，造成冲突
+    //  implementation files('D:/StudioProjects/Demo/libs/tbs_sdk_thirdapp_v3.6.0.1325_43613_sharewithdownload_withoutGame_obfs_20180807_151115.jar')
+    // 集成 有赞云
+    implementation 'com.youzanyun.open.mobile:x5sdk:6.4.12', {
+        exclude group: 'com.android.support'
+    }
 }
 
 // 谷歌崩溃统计 firebase
