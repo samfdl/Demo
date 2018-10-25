@@ -31,6 +31,7 @@ public class LibActivity extends AppCompatActivity {
         list.add("OkHttp");
         list.add("JsBridge");
         list.add("腾讯 X5 TBS 浏览器内核");
+        list.add("有赞云");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -46,6 +47,9 @@ public class LibActivity extends AppCompatActivity {
                         break;
                     case 6:
                         intent = new Intent(LibActivity.this, X5WebViewActivity.class);
+                        break;
+                    case 7:
+                        intent = new Intent(LibActivity.this, YouzanActivity.class);
                         break;
                 }
                 startActivity(intent);
