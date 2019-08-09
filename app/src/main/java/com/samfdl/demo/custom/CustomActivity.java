@@ -39,6 +39,7 @@ public class CustomActivity extends AppCompatActivity {
         list.add("调用系统相册");
         list.add("图片轮播（banner）");
         list.add("移动控件");
+        list.add("View拖拽跟随手指移动");
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(list);
 
         recyclerViewAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClickListener() {
@@ -93,6 +94,9 @@ public class CustomActivity extends AppCompatActivity {
                         break;
                     case 15:
                         intent = new Intent(CustomActivity.this, MoveViewActivity.class);
+                        break;
+                    case 16:
+                        intent = new Intent(CustomActivity.this, DragViewActivity.class);
                         break;
                 }
                 startActivity(intent);
