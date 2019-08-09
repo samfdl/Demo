@@ -6,6 +6,9 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.TextView;
 
+/**
+ * View拖拽跟随手指移动
+ */
 @SuppressLint("AppCompatCustomView")
 public class DragView extends TextView {
     float moveX;

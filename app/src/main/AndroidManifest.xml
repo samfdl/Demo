@@ -49,6 +49,7 @@
         <activity android:name=".custom.BannerActivity" />
         <activity android:name=".custom.MoveViewActivity" />
         <activity android:name=".custom.DragViewActivity" />
+        <activity android:name=".custom.DragScaleViewActivity" />
 
         <activity android:name=".graphic.GraphicActivity" />
         <activity android:name=".graphic.CircleActivity" />
